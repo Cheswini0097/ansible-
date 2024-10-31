@@ -1,0 +1,9 @@
+- name: Update Pacakage Lists
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update Packages Lists
+      apt:
+      update_cache: yes 
+    
+    
