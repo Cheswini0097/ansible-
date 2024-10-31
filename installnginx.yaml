@@ -14,7 +14,7 @@
         name: nginx
         state: present
 
-    - name: Start and Enable nginx
+    - name: Start and Enable Nginx
       service:
       name: nginx
       state: started

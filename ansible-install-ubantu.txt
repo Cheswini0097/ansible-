@@ -30,3 +30,17 @@ edit the file and update  the worker node ip addres in the inventory file to man
 
 vim /etc/ansible/hosts
 
+step -6
+
+check the connection list useing the  following command
+
+ansible-inventory --list -y
+
+step -7
+
+check the ansible connection 
+
+ansible all -m ping -u root
+
+
+
