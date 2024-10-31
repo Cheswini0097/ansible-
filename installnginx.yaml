@@ -1,0 +1,21 @@
+- name: Install and configure Nigix
+  hosts: all
+  become: yes
+
+
+  tasks:
+    - name: update all package lists
+      apt:
+        update-cache: yes
+
+
+    - name: Install Nigix
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start and Enable nginx
+      service:
+      name: nginx
+      state: started
+      enable: yes    
