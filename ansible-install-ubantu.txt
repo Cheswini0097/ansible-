@@ -1,0 +1,32 @@
+steps to install the ansible in the ec2-server  for the ubuntu
+
+step1
+
+From your control node, run the following command to include the official project’s PPA (personal package archive) in your system’s list of sources:
+
+sudo apt-add-repository ppa:ansible/ansible
+
+step -2 update the system  so that it will update the system to aware of the system packages
+
+sudo apt update -y
+
+step -3
+
+Install the ansible 
+
+apt install ansible
+
+step -4
+
+
+set-up the inventpry file  for  that  contains the host which will manage the other server useing the ansible 
+
+path : /etc/ansible/hosts
+
+
+step -5 
+
+edit the file and update  the worker node ip addres in the inventory file to mange the server from the ansible server
+
+vim /etc/ansible/hosts
+
