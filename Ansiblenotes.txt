@@ -1,0 +1,37 @@
+Ansible: ansible is the power-full configuration managemnt tool	it requires noting to install on the target meachine,
+         Ansible is the powerfull automation tool that simplifies the IT infrastructure managemnt
+		 ansible can connect any system externally and perform the task given by us,
+		 
+		 
+		 core-concepts
+		               modules
+					   play books
+					   inventory
+					   Roles
+
+
+Modules: modules are th inbuilt commands which performs ansible plays
+ 
+playbook: playbook is noting group of task written in the .yaml file  which performs  the play'simplifies infrastructure managemnt,
+ 
+Inventory: invetory is  the address book of the network device, it  is the file it contans the list of all device list which we want to manage,
+ 
+Role: ansible roles are powerfull way to define  the automation the task 
+      To make playbook more organised, and reuseable, and easy to maintain the 
+	  
+	  there are some  key components in the ansible roles,
+	my_role/
+    tasks/
+│   └── main.yml
+├── handlers/
+│   └── handlers.yml
+├── vars/
+│   └── main.yml
+├── templates/
+│   └── nginx.conf.j2
+├── files/
+│   └── start_nginx.sh
+└── meta/
+    └── main.yml
+	
+	
