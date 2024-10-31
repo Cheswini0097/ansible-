@@ -5,12 +5,12 @@
   tasks:
     - name: Create a directory
       file:
-         name: test-dir
-         path: /root/test-dir
-         state: directory
-         mode: '0777'
+        path: /root/test-dir
+        state: directory
+        mode: '0755'  # Owner: read, write, execute; Group: read, execute; Others: read, execute
 
-    - name: Create file
+    - name: Create a file
       file:
-      path: /root/testfile1
-      state: touch          
+        path: /root/testfile1
+        state: touch
+        mode: '0644'  # Owner: read, write; Group, Others: read-only
