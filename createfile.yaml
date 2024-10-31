@@ -6,7 +6,7 @@
     - name: Create a directory
       file:
          name: test-dir
-         path: /root/
+         path: /root/test-dir
          state: directory
          mode: '0777'
 
