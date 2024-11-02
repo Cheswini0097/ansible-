@@ -23,6 +23,10 @@ set-up the inventpry file  for  that  contains the host which will manage the ot
 
 path : /etc/ansible/hosts
 
+and update worker node ip address as following
+
+server1 ansible_host=172.31.1.41 
+
 
 step -5 
 
