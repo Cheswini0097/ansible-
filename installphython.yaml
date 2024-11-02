@@ -1,24 +1,24 @@
-- name: Install Phython and Required  Packages
+- name: Install Python and Required Packages
   hosts: all
   become: yes
 
   tasks:
-     -name: Update packages List
+    - name: Update package lists
       apt:
-      update_cache: yes
+        update_cache: yes
 
-      - name: install Phython3 and Pip3
-        apt:
-          name: phython3-pip phython3-dev
-          state: present
-          update_cache: yes
-      - name: Install required packages using pip3
-        pip:
-          name:
-              - requests
-              - beautifulsoup4
-              - numpy
-              - pandas
-          state: present
-          executable: /usr/bin/pip3                   
-    
+    - name: Install Python3 and Pip3
+      apt:
+        name: python3-pip python3-dev
+        state: present
+        update_cache: yes
+
+    - name: Install required packages using pip3
+      pip:
+        name:
+          - requests
+          - beautifulsoup4
+          - numpy
+          - pandas
+        state: present
+        executable: /usr/bin/pip3
