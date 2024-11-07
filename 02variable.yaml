@@ -1,7 +1,8 @@
-- name: Print message
+- name: Print a message
   hosts: web
-  
+  become: yes
+
   tasks:
-  - name: Print message
-    ansible.builtin.debug:
-    msg: "hello am chethan from devops team"
+    - name: Print the message
+      ansible.builtin.debug:
+        msg: "Hello, I am Chethan from the DevOps team"
