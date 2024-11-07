@@ -1,0 +1,44 @@
+Docker docker is the powerfull tool  that allows you to package your software and all dependicies, in to a self conatained unit called container, this container can eaisly run in your computer with docker installed.
+
+command to run the conatainer: docker run -t <imagename>
+
+Docker-Hub
+
+Docker hub is the docker registery manages and stores the docker images
+
+
+when docker is installed a group called docker is created
+
+command to add ec2 user 
+
+sudo usermod -aG docker ec2-user
+
+command to create  the docker  image as well switch in to the container: 
+
+docker run -it --name <containername> <imagename> /bin/bash
+
+docker pull <imagename> command to pull the image from the docker hub
+docker search <imagename> command to search the docker image from server>
+docker ps -a : command list all containers in the server
+cat /etc/os-release   command to check os related details 
+
+
+there are there ways to create the conatiner 
+
+1. pull images from the docker-hub
+2: create  image from exizting docker container
+3: create image from docker file 
+
+
+pull images from docker hub we can pull the docker images in the docker-hub,
+
+we can create container useing the pulled images in the from the dockerhub and we can create the  container useing images created.
+
+we can create the container useing the docker file,
+
+Docker file: we can define the multiple application in the docker docker compose yamal file to configure  the multiple application  in the single command.
+
+
+
+we can scale-up and scale down thw containers eaisly
+

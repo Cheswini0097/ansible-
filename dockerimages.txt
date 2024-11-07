@@ -1,0 +1,11 @@
+Docker file  is the simple text file that contains all commands in that user could call call command line to create image 
+
+steps to create and run the docker file:
+
+step1
+
+Dockerfile -----> file should be named with the D capital and following small
+
+docker build -t <imagename>    command to build the docker image
+
+docker run -it --name <containername> <imagename> /bin/bash
