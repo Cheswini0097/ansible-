@@ -1,6 +1,7 @@
-- name: variable to print
+- name: Print message
   hosts: web
+  
   tasks:
-  - name: print info
+  - name: Print message
     ansible.builtin.debug:
     msg: "hello am chethan from devops team"
