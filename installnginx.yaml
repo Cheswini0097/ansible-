@@ -1,19 +1,8 @@
-- name: Install and configure Nginx
-  hosts: all
+- name: install nginx
+  hosts: web
   become: yes
-
   tasks:
-    - name: Update all package lists
-      apt:
-        update_cache: yes
-
-    - name: Install Nginx
-      apt:
+      - name: install ngnix
+        ansible.builtin.pacakage:
         name: nginx
         state: present
-
-    - name: Start and Enable Nginx
-      service:
-        name: nginx
-        state: started
-        enabled: yes
