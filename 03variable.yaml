@@ -1,0 +1,12 @@
+- name: Print variable
+  hosts: web
+  become: yes
+  vars:
+    Name: "Chethan Reddy"
+    Age: "29 years"
+    Dob: "feb 25 1995"
+
+  tasks:
+    - name: print the information
+      ansible.builtin.debug:
+        msg: "hi hello am {{Name}}, and {{Age}}, amd my {{DOB}}"
