@@ -1,8 +1,10 @@
-- name: Print a message
+- name: print the variable
   hosts: web
   become: yes
 
+
   tasks:
-    - name: Print the message
+    - name: print a  variable
       ansible.builtin.debug:
-        msg: "Hello, I am Chethan from the DevOps team"
+      msg: "hello am chethan devops learner"
+      
