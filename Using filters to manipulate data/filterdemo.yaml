@@ -6,12 +6,10 @@
       ansible.builtin.debug:
         msg: hello am learning devops from {{institute | default ('microdegree')}}
 
-    - name: Print message if age is yes
-      vars_prompt:
-       - name: age
-         prompt: Are you more than eighteen years old? (yes/no)
-         ansible.builtin.debug:
-           msg: "You are over 18."
-         when: age | lower == "yes"    
+    - name: convert greeting to uppercase
+      vars:
+        greeting: "hello bengaluru"
+      absible.builtin.debug:
+        msg: "{{greeting | upper}}"     
  
      
