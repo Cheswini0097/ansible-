@@ -6,10 +6,15 @@
       ansible.builtin.debug:
         msg: hello am learning devops from {{institute | default ('microdegree')}}
 
-    - name: print msg if value is yes
-      vars_promt:
-       - name: Age
-         promt: are you more than eighteen years old
+   - name: Check Age
+  hosts: web
+  become: yes
+  vars_prompts:
+    - name: age
+      prompt: Are you more than eighteen years old? (yes/no)
+
+  tasks:
+    - name: Print message if age is yes
       ansible.builtin.debug:
-        msg: test
-      when: some_string_value | bool
+        msg: "You are over 18."
+      when: age | lower == "yes" 
