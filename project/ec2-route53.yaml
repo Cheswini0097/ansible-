@@ -1,20 +1,21 @@
 - name: create ec2 and Route53
   hosts: local
   become: yes
+  connetion: local
 
   vars:
-  subnet_id: "subnet-0339e283bff834529"
-  sg_id: "sg-0e5538fb0cc47b2e5"
-  ami_id: "ami-09c813fb71547fc4f"
-  instances:
-     - frontend:
-     - apiserver:
-     - backendserver:
-     zone: cheswini.shop
-  tasks:
-  - name: install boto3 and boot core
+    subnet_id: "subnet-07c22d0e696f44c74" # replace with your subnet id
+    sg_id: "sg-0e9151a3a1c074eb5"
+    ami_id: "ami-09c813fb71547fc4f"
+    instances:
+    - mysql
+    - backend
+    - frontend
+    zone: cheswini.shop
+    tasks:
+  - name: ansible to install boto3 and botocore
     ansible.builtin.pip:
       name:
-        - boto3
-        - botocore
-        executable: pip3.9
+      - boto3
+      - botocore
+      executable: pip3.9  
