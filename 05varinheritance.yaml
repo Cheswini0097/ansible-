@@ -11,10 +11,9 @@
       ansible.builtin.debug:
         msg: "hi hello am {{Name}}, from {{Place}}, and my address is {{Address}}"
 
-    - name: Print personal information again
-      hosts: web
-      bocome: yes
-      vars:
-        Name: karthik
-      ansible.builtin.debug:
-        msg: "hi hello am {{Name}}, from {{Place}}, and my address is {{Address}}"
+- name: Print personal information again
+  hosts: web
+  vars:
+  Name: karthik
+  ansible.builtin.debug:
+  msg: "hi hello am {{Name}}, from {{Place}}, and my address is {{Address}}"
