@@ -1,8 +1,8 @@
--name: create ec2 and Route53
- hosts: local
- become: yes
+- name: create ec2 and Route53
+  hosts: local
+  become: yes
 
- vars:
+  vars:
   subnet_id: "subnet-0339e283bff834529"
   sg_id: "sg-0e5538fb0cc47b2e5"
   ami_id: "ami-09c813fb71547fc4f"
@@ -18,4 +18,3 @@
         - boto3
         - botocore
         executable: pip3.9
-         
