@@ -1,0 +1,7 @@
+- name: demo for filter to manipulate data 
+  hosts: web
+  become: yes
+  tasks:
+    - name: print the defaut variable
+      ansible.builtin.debug:
+      msg: hello am learning devops from {{institute | default ('microdegree')}}
