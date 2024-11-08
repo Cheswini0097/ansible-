@@ -5,3 +5,11 @@
     - name: print the default variable
       ansible.builtin.debug:
         msg: hello am learning devops from {{institute | default ('microdegree')}}
+
+    - name: print msg if value is yes
+      vars_promt:
+       - name: Age
+         promt: are you more than eighteen years old
+      ansible.builtin.debug:
+        msg: test
+      when: some_string_value | bool
