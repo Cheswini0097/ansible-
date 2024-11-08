@@ -1,0 +1,14 @@
+- name: Variable Promt
+  hosts: web
+  become: yes
+  vars_promt:
+    - name: username
+      promt: please enter username
+      private: false
+    - name: 1234
+      promt: please eneter password
+
+  tasks:
+     - name: print the personal information
+       ansible.builtin.debug:
+       msg: "Hi hello am {{Name}}, amd my native is {{From}}"
