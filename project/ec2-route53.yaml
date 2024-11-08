@@ -1,6 +1,6 @@
 - name: create ec2 and r53 records
-  hosts: local
-  connection: local
+  hosts: all
+  connection: all
   # assignment
   # move this to vars_files
   vars:
