@@ -1,0 +1,7 @@
+- name: demo of filters
+  hosts: web
+  become: yes
+  tasks:
+    - name:  print the undefined variable
+      ansible.builtin.debug:
+        msg: hello am learning devops from {{course | default ('microdegree')}}
