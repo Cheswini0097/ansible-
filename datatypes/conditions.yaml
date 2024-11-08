@@ -2,7 +2,7 @@
 - name: Check Number is Less Than or Equal to Ten
   hosts: web
   become: true
-  vars_prompts:
+  vars_prompt:
     - name: number
       prompt: Enter the number
   tasks:
