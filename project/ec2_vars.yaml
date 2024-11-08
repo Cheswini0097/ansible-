@@ -3,6 +3,6 @@ sg_id: "sgr-08419d9b297df4b1a"
 ami_id: "ami-09c813fb71547fc4f"
 
 instances:
-- database
-- frontend
-- apiserver
+  - database
+  - frontend
+  - apiserver
