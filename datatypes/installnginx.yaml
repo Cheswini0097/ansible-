@@ -6,6 +6,7 @@
     - name: print the stats
       ansible.builtin.debug:
         msg: "{{ansible_facts}}"
+        
     - name: install nginx if os is redhat
       ansible.builtin.dnf:
       name: nginx
