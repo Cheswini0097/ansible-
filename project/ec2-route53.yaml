@@ -4,7 +4,7 @@
   connetion: local
 
   vars:
-    subnet_id: "subnet-07c22d0e696f44c74" # replace with your subnet id
+    subnet_id: "subnet-07c22d0e696f44c74" # replace with updated subnet id
     sg_id: "sg-0e9151a3a1c074eb5"
     ami_id: "ami-09c813fb71547fc4f"
     instances:
@@ -18,4 +18,17 @@
       name:
       - boto3
       - botocore
-      executable: pip3.9  
+      executable: pip3.9
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      instance_type: "t2.micro"
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+    loop: "{{ instances }}"
+    register: ec2_instances
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ ec2_instances }}" 
