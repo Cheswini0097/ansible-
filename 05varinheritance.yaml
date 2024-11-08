@@ -16,6 +16,6 @@
   vars:
     Name: karthik
   tasks:
-    - name: Print personal information
+    - name: Print personal information again
       ansible.builtin.debug:
         msg: "hi hello am {{Name}}, from {{Place}}, and my address is {{Address}}"
