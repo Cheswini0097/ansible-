@@ -1,0 +1,12 @@
+#playbook to check wheather enterted  nuber is lesser than ten and greater or equal to ten
+- name: check number is lesser then ten or equal to ten
+  hosts: web
+  become: true
+  vars_promt:
+    - name: number
+      promt: enter the number
+  tasks:
+    - name: print the numbers lesser then 10
+      ansible.builtin.debug:
+        msg: "given nuber {{number}}, is lesser than 10"
+      when: number >=10               
