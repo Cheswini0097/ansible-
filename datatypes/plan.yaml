@@ -1,0 +1,29 @@
+- name: Course information
+  hosts: web
+  vars:
+     Course: devops with mirco degree
+     Trainer: sumeeth
+     tools:
+        - git
+        - jenkins
+        - ansible
+        - docker
+        - k8's
+        - terraform
+     live: true
+     topics:
+        - linux
+        - aws
+            aws :
+              - vpc
+              - ec2-instance
+              - s3bucket
+              - loadbalance
+              - route53
+              - lamdafunction
+              - Iamroles
+
+- tasks:
+     - name: print course information
+       ansible.builtin.debug:
+         msg: "hi am learning course {{Course}}, with the trainer {{sumeeth}}, covered by topics: {{topics}}, and tools:{{tools}}"     
