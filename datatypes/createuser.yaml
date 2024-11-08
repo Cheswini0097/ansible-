@@ -10,3 +10,6 @@
     - name: Create user if not exists
       ansible.builtin.command: useradd chethan
       when: user_check.rc != 0
+
+      #create user if user is not there in the worker-node
+      
