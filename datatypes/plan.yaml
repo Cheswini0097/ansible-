@@ -4,26 +4,17 @@
      Course: devops with mirco degree
      Trainer: sumeeth
      tools:
-        - git
-        - jenkins
-        - ansible
-        - docker
-        - k8's
-        - terraform
-     live: true
+        ci: jenkins
+        cm: ansible
+        cloud: aws
      topics:
-        - linux
-        - aws
-            aws :
-              - vpc
-              - ec2-instance
-              - s3bucket
-              - loadbalance
-              - route53
-              - lamdafunction
-              - Iamroles
+     - linux
+     - shellscript
+     - terraform
+     - AWS
+     - k8
 
-- tasks:
-     - name: print course information
-       ansible.builtin.debug:
-         msg: "hi am learning course {{Course}}, with the trainer {{sumeeth}}, covered by topics: {{topics}}, and tools:{{tools}}"     
+  tasks:
+   - name: print course information
+     ansible.builtin.debug:
+       msg: "hi am learning course {{Course}}, with the trainer {{sumeeth}}, covered by topics: {{topics}}, and tools:{{tools}}"     
