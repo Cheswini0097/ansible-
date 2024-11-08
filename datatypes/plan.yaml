@@ -17,4 +17,4 @@
   tasks:
    - name: print course information
      ansible.builtin.debug:
-       msg: "hi am learning course {{Course}}, with the trainer {{sumeeth}}, covered by topics: {{topics}}, and tools:{{tools}}"     
+       msg: "hi am learning course {{Course}}, with the trainer {{Trainer}}, covered by topics: {{topics}}, and tools:{{tools}}"     
