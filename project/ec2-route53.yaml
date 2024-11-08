@@ -1,22 +1,12 @@
-- name: create ec2 and r53 records
+- name: Create EC2 and Route 53 records
   hosts: local
   connection: local
-  # assignment
-  # move this to vars_files
-  vars:
-    subnet_id: "subnet-07c22d0e696f44c74" # replace with updated subnet id
-    sg_id: "sg-0e9151a3a1c074eb5"
-    ami_id: "ami-09c813fb71547fc4f"
-    instances:
-    - mysql
-    - backend
-    - frontend
+  vars_files:
+    - ec2_vars.yaml
   tasks:
   - name: create ec2_instance
-     amazon.aws.ec2_instance:
-       name: {{ item }}
-       vpc_subnet_id: "{{ subnet_id }}"
-       instance_type: t2.micro
-       security_group: "{{ sg_id }}"
-     loop: "{{ instances }}"
-     register: ec2_instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      instance_type: t2.micro
+      security_group: "{{ sg_id }}"
