@@ -1,9 +1,10 @@
-- name: Print personal information
+- name: print personal information
   hosts: web
   become: yes
   vars_files:
-    - vars.yaml
-  tasks:
+   - vars.file
+
+ tasks:
     - name: print personal information
       ansible.builtin.debug:
-        msg: "Hi am {{Name}}, and my native is {{From}}"
+        msg: "hi hello{{Name}}, anm my namtive is {{From}}"
