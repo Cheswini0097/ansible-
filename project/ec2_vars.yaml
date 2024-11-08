@@ -1,3 +1,8 @@
-subnet_id: "subnet-07c22d0e696f44c74"
-sg_id: "sg-0e9151a3a1c074eb5"
+subnet_id: "subnet-0a795faba7e8bdd7b"
+sg_id: "sgr-08419d9b297df4b1a"
 ami_id: "ami-09c813fb71547fc4f"
+
+instances:
+- database
+- frontend
+- apiserver
