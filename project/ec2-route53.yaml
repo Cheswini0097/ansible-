@@ -3,7 +3,6 @@
   connection: localhost
   vars_files:
     - ec2_vars.yaml
-    
   tasks:
   - name: create ec2_instance
     amazon.aws.ec2_instance:
