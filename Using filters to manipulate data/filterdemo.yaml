@@ -7,7 +7,7 @@
         msg: hello am learning devops from {{institute | default ('microdegree')}}
 
     - name: Print message if age is yes
-      vars_prompts:
+      vars_prompt:
       - name: age
         prompt: Are you more than eighteen years old? (yes/no)
         ansible.builtin.debug:
