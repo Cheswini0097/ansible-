@@ -1,5 +1,5 @@
 subnet_id: "subnet-0a795faba7e8bdd7b"
-sg_id: "sgr-08419d9b297df4b1a"
+sg_id: "sg-0e9151a3a1c074eb5"
 ami_id: "ami-09c813fb71547fc4f"
 
 instances:
