@@ -14,6 +14,8 @@
 - name: Print personal information again
   hosts: web
   vars:
-  Name: karthik
-  ansible.builtin.debug:
-  msg: "hi hello am {{Name}}, from {{Place}}, and my address is {{Address}}"
+    Name: karthik
+  tasks:
+    - name: Print personal information
+      ansible.builtin.debug:
+        msg: "hi hello am {{Name}}, from {{Place}}, and my address is {{Address}}"
