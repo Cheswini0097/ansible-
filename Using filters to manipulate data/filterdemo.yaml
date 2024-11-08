@@ -8,10 +8,10 @@
 
     - name: Print message if age is yes
       vars_prompt:
-      - name: age
-        prompt: Are you more than eighteen years old? (yes/no)
-        ansible.builtin.debug:
-          msg: "You are over 18."
-        when: age | lower == "yes"    
+       - name: age
+         prompt: Are you more than eighteen years old? (yes/no)
+         ansible.builtin.debug:
+           msg: "You are over 18."
+         when: age | lower == "yes"    
  
      
