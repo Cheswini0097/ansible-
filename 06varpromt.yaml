@@ -1,14 +1,15 @@
-- name: Variable Promt
+- name: Variable Prompt
   hosts: web
   become: yes
-  vars_promts:
-    - name: username
-      promt: please enter username
+  vars_prompts:
+    - name: chethan
+      prompt: "Please enter username"
       private: false
     - name: 1234
-      promt: please eneter password
+      prompt: "Please enter password"
+      private: true
 
   tasks:
-     - name: print the personal information
-       ansible.builtin.debug:
-       msg: "Hi hello am {{Name}}, amd my native is {{From}}"
+    - name: Print the personal information
+      ansible.builtin.debug:
+        msg: "Hi hello, I am {{ chethan }}, and my password is  {{ 1234 }}"
