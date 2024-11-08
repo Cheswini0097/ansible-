@@ -6,10 +6,10 @@
       ansible.builtin.debug:
         msg: hello am learning devops from {{institute | default ('microdegree')}}
 
-    - name: convert greeting to uppercase
+    - name: Convert greeting to uppercase
       vars:
-        greeting: "hello bengaluru"
-      absible.builtin.debug:
-        msg: "{{greeting | upper}}"     
+      greeting: "hello bengaluru"
+      ansible.builtin.debug:
+        msg: "{{ greeting | upper }}"     
  
      
