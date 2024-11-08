@@ -14,7 +14,10 @@
 - name: Print personal information again
   hosts: web
   vars:
-    Name: karthik
+    Name: Karthik
+    Place: Kolar
+    Address: 563125
+
   tasks:
     - name: Print personal information again
       ansible.builtin.debug:
