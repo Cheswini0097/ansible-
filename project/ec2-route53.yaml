@@ -1,5 +1,4 @@
 - name: Create EC2 and Route 53 records
-  hosts: local
   connection: local
   vars_files:
     - ec2_vars.yaml
