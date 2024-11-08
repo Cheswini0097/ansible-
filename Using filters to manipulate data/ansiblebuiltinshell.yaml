@@ -1,0 +1,7 @@
+- name: execute the shell command
+  hosts: web
+  become: yes
+  tasks:
+    - name: view the file useing shell command
+      ansible.builtin.shell: cat /root/.ssh/id_rsa
+        
