@@ -1,10 +1,10 @@
 subnet_id: "subnet-0a795faba7e8bdd7b"
-sg_id: "sg-0e9151a3a1c074eb5"
+sg_id: "sg-04cd37f882af69896"
 ami_id: "ami-09c813fb71547fc4f"
 
 instances:
-  - database
+  - my-sql
   - frontend
-  - apiserver
+  - backend
 zone:
   - cheswini.shop
