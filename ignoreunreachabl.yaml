@@ -4,9 +4,11 @@
   tasks:
   - name: ping the all servers
     ansible.builtin.ping:
-    register: server
+    register: server_results
 
 
   - name: print the unreachable error
     ansible.builtin.debug:
-      msg: "server details: {{ server }}"
+      msg: " server info: {{ server_results }}"
+    when: item.unreachable == true
+    loop: "{{ server_results.results }}"  
