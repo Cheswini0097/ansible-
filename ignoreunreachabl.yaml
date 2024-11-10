@@ -1,0 +1,12 @@
+- name: ping the server
+  become: yes
+  hosts: web
+  tasks:
+  - name: ping the all servers
+    ansible.builtin.ping:
+    register: server
+
+
+  - name: print the unreachable error
+    ansible.builtin.debug:
+      msg: "server details: {{ server }}"
