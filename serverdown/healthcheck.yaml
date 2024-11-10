@@ -2,8 +2,8 @@
   become: yes
   hosts: all
   tasks:
-    - name: check status of ngnix
-      ansible.builtin.shell: systemctl status ngnix
+    - name: check status of nginx
+      ansible.builtin.shell: systemctl status nginx
       register: nginx_status_service
       ignore_errors: true
        
