@@ -4,11 +4,11 @@
   tasks:
     - name: check status of ngnix
       ansible.builtin.shell: systemctl status ngnix
-      register: nginx_status.service
+      register: nginx_status_service
       ignore_errors: true
        
     - name: print nginx status
       ansible.builtin.debug:
-       msg: "nginx status: {{ nginx_status.service  }}"
+       msg: "nginx status: {{ nginx_status_service  }}"
       when: nginx_status.service.stdout! ="active"
     
