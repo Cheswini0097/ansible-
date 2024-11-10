@@ -1,8 +1,8 @@
 - name: create user
   become: yes
   hosts: web
-  vars:
-   - secrets.yml
+  vars_files:
+    - secrets.yml
   tasks:
   - name: check user exist or not
     ansible.builtin.command: id chethan
