@@ -1,0 +1,16 @@
+- name: create user
+  beome: yes
+  hosts: web
+  tasks:
+  - name: check user exist or not
+    ansible.builtin.command: id chethan
+    register: USER
+    ignore_errors: True
+
+  - name: print the user information
+    ansible.builtin.debug:
+      msg: "user info {{ USER }}"
+
+  - name: create user
+    ansible.builtin.command: useradd chethan
+    When: USER.rc != 0
