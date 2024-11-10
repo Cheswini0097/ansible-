@@ -1,5 +1,5 @@
 - name: create user
-  beome: yes
+  become: yes
   hosts: web
   vars:
    - ansible-vault secrets.yml
