@@ -1,6 +1,8 @@
 - name: create user
   beome: yes
   hosts: web
+  vars:
+   - ansible-vault secrets.yml
   tasks:
   - name: check user exist or not
     ansible.builtin.command: id chethan
