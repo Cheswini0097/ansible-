@@ -1,6 +1,6 @@
 - name: Check the service status of my critical server
   become: yes
-  hosts: all:web
+  hosts: web
   tasks:
     - name: Check the status of mu all servers
       ansible.builtin.shell: "systemctl is-active my-critical_service"
