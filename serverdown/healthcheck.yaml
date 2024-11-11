@@ -6,14 +6,17 @@
       ansible.builtin.shell: "systemctl is-active my-critical_service"
       register: service_status
       ignore_errors: true
+
     - name: Report the server with the service down
       ansible.builtin.debug:
         msg: "{{ inventory_hostname }}-Service is down"
       when: service_status.stdout != "active"
+
     - name: Check the recent logs
       ansible.builtin.shell: "journal -u my_critical_service --since '10 minutes ago'"
       register: service_logs
       when: service_status.stdout != "active"
+
     - name: print the service logs for the debuging
       ansible.builtin.debug:
        var: service_status.stdout != "active"
