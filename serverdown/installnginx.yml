@@ -1,0 +1,7 @@
+- name: install nginx in the servers
+  become:yes
+  hosts: web
+  tasks:
+    - name: intstall nginx
+      ansible.builtin.command:
+       
