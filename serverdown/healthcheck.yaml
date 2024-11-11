@@ -1,29 +1,34 @@
-- name: Check the service status of my critical server
-  become: yes
-  hosts: web
+# health_check.yml
+- name: Check the status of my_critical_service
+  hosts: all_servers  # Or specify a specific group of servers
   tasks:
-    - name: Check the status of mu all servers
-      ansible.builtin.shell: "systemctl is-active my-critical_service"
+    - name: Check service status
+      ansible.builtin.shell: "systemctl is-active my_critical_service"
       register: service_status
       ignore_errors: true
-
-    - name: Report the server with the service down
+    - name: Report servers with service down
       ansible.builtin.debug:
-        msg: "{{ inventory_hostname }}-Service is down"
+        msg: "{{ inventory_hostname }} - Service is down"
       when: service_status.stdout != "active"
-
-    - name: Check the recent logs
-      ansible.builtin.shell: "journal -u my_critical_service --since '10 minutes ago'"
+    - name: Check recent logs
+      ansible.builtin.shell: "journalctl -u my_critical_service --since '10 minutes ago'"
       register: service_logs
       when: service_status.stdout != "active"
-
-    - name: print the service logs for the debuging
+    - name: Print service logs for debugging
       ansible.builtin.debug:
-       var: service_logs.stdout != "active"
+       var: service_logs.stdout_lines
       when: service_status.stdout != "active"
 
-    - name: Restart the servive if it is down
+    - name: Restart the service if it is down
       ansible.builtin.systemd:
        name: my_critical_service
-       state: started
-      when: service_status.stdout != "active" 
+      state: restarted
+      when: service_status.stdout != "active"
+
+    - name: Confirm service is active
+      ansible.builtin.shell: "systemctl is-active my_critical_service"
+      register: final_status
+    - name: Report any servers where the service is still down
+      ansible.builtin.debug:
+      msg: "{{ inventory_hostname }} - Service failed to start"
+      when: final_status.stdout != "active" 
