@@ -1,6 +1,6 @@
 # restart_critical_service.yml
 - name: Manage critical service across multiple servers
-  hosts: all_servers  # Adjust this to target your specific group of servers
+  hosts: web  # Adjust this to target your specific group of servers
   become: true        # Ensure you have the necessary privileges to manage services
   vars:
     service_name: "my_critical_service"
