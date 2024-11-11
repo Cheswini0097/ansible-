@@ -1,0 +1,20 @@
+# restart_critical_service.yml
+- name: Manage critical service across multiple servers
+  hosts: all_servers  # Adjust this to target your specific group of servers
+  become: true        # Ensure you have the necessary privileges to manage services
+  vars:
+    service_name: "my_critical_service"
+  tasks:
+    - name: Check the status of the service
+      ansible.builtin.shell: "systemctl is-active {{ service_name }}"
+      register: service_status
+      ignore_errors: true
+    - name: Log servers with the service down
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} - Service {{ service_name }} is down"
+      when: service_status.stdout != "active"
+    - name: Retrieve recent service logs for debugging
+      ansible.builtin.shell: "journalctl -u {{ service_name }} --since '10 minutes ago'"
+      register: service_logs
+      when: service_status.stdout != "active"
+      ignore_errors: true
