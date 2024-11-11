@@ -30,5 +30,5 @@
       register: final_status
     - name: Report any servers where the service is still down
       ansible.builtin.debug:
-      msg: "{{ inventory_hostname }} - Service failed to start"
+       msg: "{{ inventory_hostname }} - Service failed to start"
       when: final_status.stdout != "active" 
