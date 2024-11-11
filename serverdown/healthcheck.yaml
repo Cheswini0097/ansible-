@@ -19,10 +19,10 @@
        var: service_logs.stdout_lines
       when: service_status.stdout != "active"
 
-    - name: Restart the service if it is down
+    - name: Ensure service is running
       ansible.builtin.systemd:
        name: my_critical_service
-      state: restarted
+       state: started
       when: service_status.stdout != "active"
 
     - name: Confirm service is active
