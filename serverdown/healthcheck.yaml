@@ -10,3 +10,11 @@
       ansible.builtin.debug:
         msg: "{{ inventory_hostname }}-Service is down"
       when: service_status.stdout != "active"
+    - name: Check the recent logs
+      ansible.builtin.shell: "journal -u my_critical_service --since '10 minutes ago'"
+      register: service_logs
+      when: service_status.stdout != "active"
+    - name: print the service logs for the debuging
+      ansible.builtin.debug:
+       var: service_status.stdout != "active"
+      when: service_status.stdout != "active"
