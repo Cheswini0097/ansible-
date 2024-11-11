@@ -1,0 +1,19 @@
+- name: Install botocore and boto3
+  hosts: local host
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Install botocore and boto3
+      command: pip install botocore boto3
+      args:
+        chdir: /tmp
+      remote_src: yes
+
+    - name: Check Python interpreter
+      command: which python3.9
+      register: python_path
+      
+    - name: Debug Python path
+      debug:
+        msg: "Python path: {{ python_path.stdout }}"
