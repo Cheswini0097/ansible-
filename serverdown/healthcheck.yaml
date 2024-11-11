@@ -19,5 +19,11 @@
 
     - name: print the service logs for the debuging
       ansible.builtin.debug:
-       var: service_status.stdout != "active"
+       var: service_logs.stdout != "active"
       when: service_status.stdout != "active"
+
+    - name: Restart the servive if it is down
+      ansible.builtin.systemd:
+       name: my_critical_service
+       state: started
+      when: service_status.stdout != "active" 
