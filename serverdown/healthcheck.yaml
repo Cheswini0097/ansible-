@@ -1,14 +1,12 @@
-- name: check the status ngnix in multiple server
+- name: Check the service status of my critical server
   become: yes
-  hosts: all
+  hosts: all:web
   tasks:
-    - name: check status of nginx
-      ansible.builtin.shell: systemctl status nginx
-      register: nginx_status_service
+    - name: Check the status of mu all servers
+      ansible.builtin.shell: "systemctl is-active my-critical_service"
+      register: service_status
       ignore_errors: true
-       
-    - name: print nginx status
+    - name: Report the server with the service down
       ansible.builtin.debug:
-       msg: "nginx status: {{ nginx_status_service  }}"
-      when: nginx_status.service.stdout! ="active"
-    
+        msg: "{{ inventory_hostname }}-Service is down"
+      when: service_status.stdout != "active"
