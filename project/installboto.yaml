@@ -8,7 +8,6 @@
       command: pip install botocore boto3
       args:
         chdir: /tmp
-      remote_src: yes
 
     - name: Check Python interpreter
       command: which python3.9
