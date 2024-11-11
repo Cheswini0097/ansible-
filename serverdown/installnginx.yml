@@ -4,5 +4,6 @@
   tasks:
     - name: intstall nginx
       ansible.builtin.pacakage:
+      name: nginx
       state: present
        
