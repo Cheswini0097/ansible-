@@ -1,6 +1,6 @@
 # health_check.yml
 - name: Check the status of my_critical_service
-  hosts: all_servers  # Or specify a specific group of servers
+  hosts: web
   tasks:
     - name: Check service status
       ansible.builtin.shell: "systemctl is-active my_critical_service"
